@@ -4,3 +4,17 @@ metadata:
   name: k8s-microproject-ingress
 spec:
   tls : 
+  - hosts :
+    - toto.example.com
+    secretName: toto-secret
+  rules:
+  - host: toto.example.com
+    http:
+      paths:
+      - path: /toto
+        pathType: Prefix
+        backend:
+          service:
+            name: toto-svc
+            port:
+              number: 80
