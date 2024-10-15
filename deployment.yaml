@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind : Deployment
+metadata :
+  name : k8s-microproject-deployment
+spec :
+  selector :
+    matchLabels:
+      app: k8s-microproject
+  template:
+    metadata:
+      labels:
+        app: k8s-microproject
+    spec:
+      containers:
+        - name: my-pods
+          image: marvinvaucanson/k8s-microproject
+  replicas : 3
