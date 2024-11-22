@@ -7,13 +7,13 @@ metadata:
 spec:
   containers:
   - name: liveness
-    image: registry.k8s.io/e2e-test-images/agnhost:2.40
+    image: marvinvaucanson/k8s-microproject
     args:
     - liveness
     livenessProbe:
       httpGet:
-        path: /toto
-        port: 443
+        path: /
+        port: 8080
         httpHeaders:
         - name: Custom-Header
           value: Awesome
