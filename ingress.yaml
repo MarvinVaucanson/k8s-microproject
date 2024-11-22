@@ -3,18 +3,23 @@ kind: Ingress
 metadata:
   name: k8s-microproject-ingress
 spec:
+  defaultBackend:
+    service:
+      name: k8s-microproject-service
+      port:
+        number: 80
   tls : 
   - hosts :
-    - toto.example.com
+    - localhost
     secretName: toto-secret
   rules:
-  - host: toto.example.com
+  - host: localhost
     http:
       paths:
-      - path: /toto
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: toto-svc
+            name: k8s-microproject-service
             port:
               number: 80
