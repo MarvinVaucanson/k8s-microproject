@@ -3,17 +3,18 @@ kind: Ingress
 metadata:
   name: k8s-microproject-ingress
 spec:
-  defaultBackend:
-    service:
-      name: k8s-microproject-service
-      port:
-        number: 80
+  ingressClassName: nginx
+  # defaultBackend:
+  #   service:
+  #     name: k8s-microproject-service
+  #     port:
+  #       number: 80
   tls : 
   - hosts :
     - localhost
     secretName: toto-secret
   rules:
-  - host: localhost
+  - host: virtu-avancee
     http:
       paths:
       - path: /

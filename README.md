@@ -134,13 +134,19 @@ spec:
 kubectl apply -f ingress.yaml
 ```
 
-3. Check that your ingress is operational
+3. Enable the ingress addon
+
+```bash
+minikube addons enable ingress
+```
+
+4. Check that your ingress is operational
 
 ```bash
 kubectl get ingress
 ```
 
-4. Send a GET request to the ingress
+5. Send a GET request to the ingress
 
 ```bash
 curl --resolve "<ingress-host>:80:<ingress-address>" -i http://<ingress-host>/
