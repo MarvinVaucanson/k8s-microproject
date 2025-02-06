@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: k8s-microproject-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   ingressClassName: nginx
   # defaultBackend:
@@ -11,10 +13,10 @@ spec:
   #       number: 80
   tls : 
   - hosts :
-    - localhost
+    - virtu-avancee.fr
     secretName: toto-secret
   rules:
-  - host: virtu-avancee
+  - host: virtu-avancee.fr
     http:
       paths:
       - path: /
@@ -23,4 +25,4 @@ spec:
           service:
             name: k8s-microproject-service
             port:
-              number: 80
+              number: 30036

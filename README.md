@@ -1,8 +1,8 @@
 ## Steps
 
-### Part 1
+### Part 1 ***(DONE)***
 
-#### Step 1 - Initial project setup
+#### Step 1 - Initial project setup ***(DONE)***
 
 1. Clone this repository
 
@@ -12,13 +12,13 @@ git clone git@github.com:nas-tabchiche/k8s-microproject.git
 
 2. Create your own repository on Github
 
-3. Change the repote to your repository
+3. Change the remote to your repository
 
 ```bash
 git remote set-url origin git@github.com:<github-username>/<repo-name>.git
 ```
 
-#### Step 2 - Install and run the application
+#### Step 2 - Install and run the application ***(DONE)***
 
 Requirements:
 - Node 22+
@@ -45,7 +45,7 @@ curl http://localhost:3000/
 
 The output should be 'Hello, Kubernetes!'
 
-#### Step 3 - Dockerize and publish the image
+#### Step 3 - Dockerize and publish the image ***(DONE)***
 
 1. Write a Dockerfile
 
@@ -58,10 +58,11 @@ docker build . -t <username>/k8s-microproject
 3. Publish the image on dockerhub
 
 ```bash
+docker login
 docker push <username>/k8s-microproject
 ```
 
-#### Step 4 - Create and expose your first deployment
+#### Step 4 - Create and expose your first deployment ***(DONE)***
 
 1. Write a `deployment.yaml` file describing your deployment
 
@@ -115,7 +116,7 @@ curl <URL of the exposed service>
 
 The output should be 'Hello, Kubernetes!'
 
-#### Step 5 - Create an ingress
+#### Step 5 - Create an ingress ***(DONE)***
 
 1. Write a `ingress.yaml` file describing your ingress
 
@@ -158,11 +159,21 @@ curl --resolve "<ingress-host>:80:<ingress-address>" -i http://<ingress-host>/
 
 > Docs: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request
 
-- Your pods have a liveness probe set up
+- Your pods have a liveness probe set up ***(DONE ?)***
 
 #### HTTPS support
 
-- Your ingress is accessible through https
+- Your ingress is accessible through https ***(DONE)***
+
+```bash
+docker build -t marvinvaucanson/k8s-microproject .
+docker run --rm -p 443:8080 marvinvaucanson/k8s-microproject
+```
+
+Dans un deuxième terminal :
+```bash
+curl -k https://localhost
+```
 
 #### Persistence
 
