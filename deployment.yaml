@@ -10,6 +10,7 @@ spec :
     metadata:
       labels:
         app: k8s-microproject
+
     spec:
       containers:
         - name: my-pods
@@ -24,4 +25,13 @@ spec :
                 value: Awesome
             initialDelaySeconds: 20
             periodSeconds: 6
+          volumeMounts:
+            - mountPath: "/app/logs"
+              name: logs-volume
+
+      volumes:
+        - name: logs-volume
+          persistentVolumeClaim:
+            claimName: logs-pvc
+        
   replicas : 3

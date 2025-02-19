@@ -62,6 +62,12 @@ docker login
 docker push <username>/k8s-microproject
 ```
 
+4. Ben oui on start
+
+```bash
+minikube start
+```
+
 #### Step 4 - Create and expose your first deployment ***(DONE)***
 
 1. Write a `deployment.yaml` file describing your deployment
